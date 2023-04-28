@@ -1,5 +1,5 @@
 import { styles } from "../style";
-import { Text, View, FlatList } from "react-native";
+import { Text, View, FlatList, Pressable } from "react-native";
 function GoalsList({ data, deletex }) {
   return (
     <View style={styles.goalsArea}>
@@ -10,12 +10,12 @@ function GoalsList({ data, deletex }) {
         }}
         renderItem={(dataItem) => (
           <View style={styles.goalItem}>
-            <Text
+            <Pressable
+              android_ripple={{ color: "grey" }}
               onPress={() => deletex(dataItem.index)}
-              style={styles.goalItemText}
             >
-              {dataItem.item}
-            </Text>
+              <Text style={styles.goalItemText}>{dataItem.item}</Text>
+            </Pressable>
           </View>
         )}
       />
