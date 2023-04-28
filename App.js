@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View, Button, TextInput } from "react-native";
+import { ScrollView, Text, View, Button, TextInput } from "react-native";
+
 import { useState } from "react";
 import { styles } from "./style";
 export default function App() {
@@ -11,7 +12,7 @@ export default function App() {
     setGoalsList((old) => [...old, goal]);
     setGoal("");
   }
- 
+
   return (
     <View style={styles.container}>
       <View style={styles.addArea}>
@@ -24,13 +25,15 @@ export default function App() {
         <Button onPress={addGoalHandler} title="Add Goal" />
       </View>
       <View style={styles.goalsArea}>
-        {goalsList.map((goal, id) => (
-          // some platform like ios may have some issue with elemnt compiling support styling in this case we add warper
-          // like view around text to solve it insted pf adding text directly
-          <View key={id} style={styles.goalItem}>
-            <Text style={styles.goalItemText}>{goal}</Text>
-          </View>
-        ))}
+        <ScrollView>
+          {goalsList.map((goal, id) => (
+            // some platform like ios may have some issue with elemnt compiling support styling in this case we add warper
+            // like view around text to solve it insted pf adding text directly
+            <View key={id} style={styles.goalItem}>
+              <Text style={styles.goalItemText}>{goal}</Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );
