@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     width: "50%",
   },
   addArea: {
-    backgroundColor: "#aaa0bf",
+    backgroundColor: "#DBDFEA",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -26,10 +26,10 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 60,
     paddingHorizontal: 20,
-    backgroundColor: "#fff",
+    backgroundColor: "#8294C4",
   },
   goalItem: {
-    backgroundColor: "#aaa0bf",
+    backgroundColor: "#ACB1D6",
     borderRadius: 10,
 
     marginBottom: 8,
@@ -46,5 +46,20 @@ export const styles = StyleSheet.create({
     width: 100,
     height: 100,
     margin: 10,
+  },
+  added: {
+    position: "absolute",
+    top: 150,
+  },
+
+  addedText: {
+    color: "#8294C4",
+    fontSize: 18,
+    fontWeight: 600,
+  },
+ 
+
+  hidden: {
+    display: "none",
   },
 });

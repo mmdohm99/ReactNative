@@ -11,7 +11,7 @@ function GoalsList({ data, deletex }) {
         renderItem={(dataItem) => (
           <View style={styles.goalItem}>
             <Pressable
-              android_ripple={{ color: "grey" }}
+              android_ripple={{ color: "#8294C4" }}
               onPress={() => deletex(dataItem.index)}
             >
               <Text style={styles.goalItemText}>{dataItem.item}</Text>
@@ -19,6 +19,7 @@ function GoalsList({ data, deletex }) {
           </View>
         )}
       />
+
     </View>
   );
 }

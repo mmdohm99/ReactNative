@@ -1,4 +1,4 @@
-import { View, Button, TextInput, Modal, Image } from "react-native";
+import { View, Button, TextInput, Modal, Image, Text } from "react-native";
 import GoalsList from "./components/GoalsList";
 import { useState } from "react";
 import { styles } from "./style";
@@ -6,12 +6,22 @@ export default function App() {
   const [showModal, setShowMoadal] = useState(false);
   const [goal, setGoal] = useState("");
   const [goalsList, setGoalsList] = useState([]);
+  const [showAdded, setShowAdded] = useState(false);
+
+  function added() {
+    setTimeout(() => setShowAdded(false), 1500);
+  }
+  function deleted() {
+    setTimeout(() => setShowDeleted(false), 1500);
+  }
   function goalInputHandler(inputText) {
     setGoal(inputText);
   }
   function addGoalHandler() {
     setGoalsList((old) => [...old, goal]);
     setGoal("");
+    setShowAdded(true);
+    added();
   }
   function deleteHandler(text) {
     setGoalsList(goalsList.filter((item, index) => index != text));
@@ -23,7 +33,7 @@ export default function App() {
     <View style={styles.container}>
       <Button
         title="Add New Goal"
-        color={"red"}
+        color={"#ACB1D6"}
         onPress={() => setShowMoadal(true)}
       />
 
@@ -40,8 +50,22 @@ export default function App() {
             value={goal}
           />
           <View style={styles.btnsArea}>
-            <Button onPress={addGoalHandler} title="Add Goal" />
-            <Button onPress={closeModalHandler} title="Cancel" />
+            <Button
+              color={"#ACB1D6"}
+              onPress={addGoalHandler}
+              title="Add Goal"
+            />
+            <Button
+              color={"#ACB1D6"}
+              onPress={closeModalHandler}
+              title="Cancel"
+            />
+          </View>
+
+          <View style={styles.added}>
+            <Text style={showAdded ? styles.addedText : styles.hidden}>
+              Added !
+            </Text>
           </View>
         </View>
       </Modal>
